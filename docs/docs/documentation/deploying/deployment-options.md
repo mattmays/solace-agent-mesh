@@ -23,7 +23,7 @@ This command starts all configured components together, providing immediate feed
 
 Production deployments require different considerations than development environments. You need reproducible builds, scalable infrastructure, and robust monitoring capabilities. Containerization addresses these requirements by providing consistent runtime environments and enabling modern orchestration platforms.
 
-We recommend using Docker for single-node deployments or Kubernetes for multi-node, scalable deployments. These technologies ensure your application runs consistently across different environments and can scale to meet demand.
+**Kubernetes is the officially supported production deployment method** for Agent Mesh, offering scalability, high availability, and enterprise-grade orchestration. Docker can be used for single-node deployments or proof-of-concept purposes, but Kubernetes is recommended for production workloads. These technologies ensure your application runs consistently across different environments and can scale to meet demand.
 
 :::note Platform Compatibility
 If your host system architecture is not `linux/amd64`, add the `--platform linux/amd64` flag when you run the container to ensure compatibility with the pre-built images.
@@ -31,7 +31,11 @@ If your host system architecture is not `linux/amd64`, add the `--platform linux
 
 ### Deploying with Docker
 
-Docker provides an excellent foundation for production deployments because it packages your application with all its dependencies into a portable container. This approach ensures consistent behavior across different environments and simplifies deployment processes.
+Docker provides a convenient way to containerize your application for development and proof-of-concept deployments. It packages your application with all its dependencies into a portable container, ensuring consistent behavior across different environments.
+
+:::note
+For production deployments, use Kubernetes with Helm instead of Docker standalone. See [Deploying with Kubernetes](#deploying-with-kubernetes) below.
+:::
 
 The following Dockerfile demonstrates how to containerize an Agent Mesh project:
 
@@ -67,7 +71,7 @@ dist
 
 ### Deploying with Kubernetes
 
-Kubernetes excels at managing containerized applications at scale, providing features like automatic scaling, rolling updates, and self-healing capabilities. When your Agent Mesh deployment needs to handle varying loads or requires high availability, Kubernetes becomes the preferred orchestration platform.
+**Kubernetes is the officially supported production deployment method** for Agent Mesh. It excels at managing containerized applications at scale, providing features like automatic scaling, rolling updates, and self-healing capabilities. Kubernetes provides the reliability, scalability, and high availability that production environments require.
 
 Agent Mesh provides Helm charts for Kubernetes deployments that handle resource management, scaling, and configuration. For prerequisites, Helm setup, and production configurations, see [Kubernetes](./kubernetes-deployment.md).
 

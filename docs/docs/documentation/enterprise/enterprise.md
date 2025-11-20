@@ -25,7 +25,15 @@ Setting up Agent Mesh Enterprise involves installation, security configuration, 
 
 ### Installation
 
-The Docker-based installation process downloads the enterprise image from the Solace Product Portal, loads it into your container environment, and launches it with the appropriate configuration for your deployment scenario. You can run Enterprise in development mode with an embedded broker for testing, or connect it to an external Solace broker for production deployments. For complete installation instructions, see [Installing Agent Mesh Enterprise](installation.md).
+Agent Mesh Enterprise supports three deployment methods:
+
+- **Kubernetes with Helm** (Officially supported for production): The recommended approach for production deployments, offering scalability, high availability, and enterprise-grade orchestration.
+
+- **Docker** (Development and proof-of-concept only): Suitable for local development, testing, and evaluation purposes.
+
+- **Python Wheel** (Development and proof-of-concept only): Run Agent Mesh Enterprise directly in your Python environment for development and testing.
+
+For complete installation instructions and links to deployment quickstarts, see [Installing Agent Mesh Enterprise](installation.md).
 
 ### Access Control
 
